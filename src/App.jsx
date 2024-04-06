@@ -13,6 +13,7 @@ function App() {
       id: toDoList.length === 0 ? 1 : toDoList[toDoList.length - 1].id + 1,
       taskName: newTask,
       completed: false,
+      failed: false,
     };
     setToDoList([...toDoList, task]);
   };
@@ -26,6 +27,18 @@ function App() {
       toDoList.map((task) => {
         if (task.id === id) {
           return { ...task, completed: true };
+        } else {
+          return task;
+        }
+      })
+    );
+  };
+
+  const failTask = (id) => {
+    setToDoList(
+      toDoList.map((task) => {
+        if (task.id === id) {
+          return { ...task, failed: true };
         } else {
           return task;
         }
@@ -48,6 +61,8 @@ function App() {
               completed={task.completed}
               deleteTask={deleteTask}
               completeTask={completeTask}
+              failed={task.failed}
+              failTask={failTask}
             />
           );
         })}
