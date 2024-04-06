@@ -40,8 +40,8 @@ body {
 }
 
 .task button {
-  width: 25px;
-  height: 20px;
+  /* width: 25px;
+  height: 20px; */
   margin-left: 20px;
   text-align: center;
 }
